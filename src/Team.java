@@ -9,12 +9,12 @@ public class Team {
 	int gSkillMin = -1;
 	int gSkillMax = -1;
 	Player[] forward = new Player[13];
-	Player[] defence = new Player[8];
+	Player[] defense = new Player[8];
 	Player[] goalie = new Player[4];
 	int played = 0;
 	int wins = 0;
 	int losses = 0;
-	int p = 0; //P is the concept defined in the assignment, the sum of the skills of the offence and defence players. The assignment tells the programmer to calculate this at the beginning of every game, but since this stays constant, there is no point in calculating it more than once.
+	int p = 0; //P is the concept defined in the assignment, the sum of the skills of the offence and defense players. The assignment tells the programmer to calculate this at the beginning of every game, but since this stays constant, there is no point in calculating it more than once.
 
 	static Team boston = new Team(1, "Boston", 				5, 9, 4, 9, 5, 7);
 	static Team buffalo = new Team(2, "Buffalo", 			6, 9, 4, 7, 4, 7);
@@ -76,7 +76,7 @@ public class Team {
 		this.gSkillMin = gSkillMin;
 		this.gSkillMax = gSkillMax;
 		this.forward = this.initializeForwards();
-		this.defence = this.initializeDefenders();
+		this.defense = this.initializeDefenders();
 		this.goalie = this.initializeGoalies();
 		this.played = 0;
 		this.wins = 0;
@@ -84,11 +84,11 @@ public class Team {
 		this.p = this.calculateP();
 	}
 
-	public Team(int num, String name, Player[] forward, Player[] defence, Player[] goalie) {
+	public Team(int num, String name, Player[] forward, Player[] defense, Player[] goalie) {
 		this.num = num;
 		this.name = name;
 		this.forward = forward;
-		this.defence = defence;
+		this.defense = defense;
 		this.goalie = goalie;
 		this.played = 0;
 		this.wins = 0;
@@ -127,7 +127,7 @@ public class Team {
 			p = p + forward[i].getSkill();
 		}
 		for(int i = 0; i < 8; i++){
-			p = p + defence[i].getSkill();
+			p = p + defense[i].getSkill();
 		}
 		return p;
 	}
@@ -227,7 +227,7 @@ public class Team {
 			System.out.println(this.forward[i]);
 		}
 		for(int i = 0; i < 8; i++) {
-			System.out.println(this.defence[i]);
+			System.out.println(this.defense[i]);
 		}
 		for(int i = 0; i < 4; i++) {
 			System.out.println(this.goalie[i]);

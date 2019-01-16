@@ -84,7 +84,7 @@ public class Player {
 		if(this.getPos() == 'F'){
 			position = "forward";
 		} else if (this.getPos() == 'D'){
-			position = "defence";
+			position = "defense";
 		} else if(this.getPos() == 'G'){
 			position = "goalie ";
 		}
