@@ -11,27 +11,17 @@ public class Team {
 	Player[] forward = new Player[13];
 	Player[] defense = new Player[8];
 	Player[] goalie = new Player[4];
+	int p = 0; //P is the concept defined in the assignment, the sum of the skills of the offence and defense players. The assignment tells the programmer to calculate this at the beginning of every game, but since this stays constant, there is no point in calculating it more than once.
+
 	int played = 0;
 	int wins = 0;
 	int losses = 0;
-	int p = 0; //P is the concept defined in the assignment, the sum of the skills of the offence and defense players. The assignment tells the programmer to calculate this at the beginning of every game, but since this stays constant, there is no point in calculating it more than once.
+	int overtimeLoss = 0;
+	int points = 0;
+	int goalsFor = 0;
+	int goalsAgainst = 0;
 
-	static Team boston = new Team(1, "Boston", 				5, 9, 4, 9, 5, 7);
-	static Team buffalo = new Team(2, "Buffalo", 			6, 9, 4, 7, 4, 7);
-	static Team carolina = new Team(3, "Carolina", 			4, 8, 5, 7, 4, 9);
-	static Team columbus = new Team(4, "Columbus", 			4, 9, 5, 8, 7, 10);
-	static Team detroit = new Team(5, "Detroit", 			4, 7, 6, 8, 4, 6);
-	static Team florida = new Team(6, "Florida", 			5, 7, 4, 8, 5, 9);
-	static Team montreal = new Team(7, "Montreal", 			4, 7, 4, 7, 4, 9);
-	static Team new_jersey = new Team(8, "New Jersey",	 	4, 7, 4, 7, 5, 6);
-	static Team ny_islanders = new Team(9, "NY Islanders", 	6, 8, 5, 7, 6, 8);
-	static Team ny_rangers = new Team(10, "NY Rangers", 	5, 7, 4, 6, 5, 7);
-	static Team ottawa = new Team(11, "Ottawa",		 		4, 6, 4, 5, 4, 5);
-	static Team philadelphia = new Team(12, "Philadelphia", 4, 6, 4, 6, 4, 7);
-	static Team pittsburgh = new Team(13, "Pittsburgh", 	6, 10, 4, 7, 5, 7);
-	static Team tampa_bay = new Team(14, "Tampa Bay", 		6, 10, 6, 10, 7, 9);
-	static Team washington = new Team(15, "Washington", 	6, 10, 5, 8, 6, 8);
-
+	//Creating the leafs
 	static Player brown = new Player('F', 5, 28);
 	static Player ennis = new Player('F', 4, 63);
 	static Player gaunthier = new Player('F', 5, 33);
@@ -63,7 +53,25 @@ public class Team {
 	static Player sparks = new Player('G', 6, 40);
 	static Player[] leafsG = {andersen, hutchinson, kaskisuo, sparks};
 
-	static Team leafs = new Team(16, "Toronto Maple Leaves", leafsF, leafsD, leafsG);
+	static Team leafs = new Team(16, "Toronto", leafsF, leafsD, leafsG);
+
+	static Team boston = new Team(1, "Boston", 				5, 9, 4, 9, 5, 7);
+	static Team buffalo = new Team(2, "Buffalo", 			6, 9, 4, 7, 4, 7);
+	static Team carolina = new Team(3, "Carolina", 			4, 8, 5, 7, 4, 9);
+	static Team columbus = new Team(4, "Columbus", 			4, 9, 5, 8, 7, 10);
+	static Team detroit = new Team(5, "Detroit", 			4, 7, 6, 8, 4, 6);
+	static Team florida = new Team(6, "Florida", 			5, 7, 4, 8, 5, 9);
+	static Team montreal = new Team(7, "Montreal", 			4, 7, 4, 7, 4, 9);
+	static Team new_jersey = new Team(8, "New Jersey",	 	4, 7, 4, 7, 5, 6);
+	static Team ny_islanders = new Team(9, "NY Islanders", 	6, 8, 5, 7, 6, 8);
+	static Team ny_rangers = new Team(10, "NY Rangers", 	5, 7, 4, 6, 5, 7);
+	static Team ottawa = new Team(11, "Ottawa",		 		4, 6, 4, 5, 4, 5);
+	static Team philadelphia = new Team(12, "Philadelphia", 4, 6, 4, 6, 4, 7);
+	static Team pittsburgh = new Team(13, "Pittsburgh", 	6, 10, 4, 7, 5, 7);
+	static Team tampa_bay = new Team(14, "Tampa Bay", 		6, 10, 6, 10, 7, 9);
+	static Team washington = new Team(15, "Washington", 	6, 10, 5, 8, 6, 8);
+
+	static Team[] teams = {leafs, boston, buffalo, carolina, columbus, detroit, florida, montreal, new_jersey, ny_islanders, ny_rangers, ottawa, philadelphia, pittsburgh, tampa_bay, washington};
 
 //Constructor
 	public Team(int num, String name, int fSkillMin, int fSkillMax, int dSkillMin, int dSkillMax, int gSkillMin, int gSkillMax) {
@@ -96,6 +104,15 @@ public class Team {
 		this.p = this.calculateP();
 	}
 
+	public static Team findTeam(String name){
+		for(int i = 0; i < teams.length; i++){
+			if(name.equals(teams[i].getName())){
+				return teams[i];
+			}
+		}
+		System.out.println("Team name not found!");
+		return null;
+	}
 	//Methods
 	public Player[] initializeForwards() {
 		Player[] forwards = new Player[13];
@@ -132,82 +149,89 @@ public class Team {
 		return p;
 	}
 
+	public static String turnIntoLength(String x, char filler, int len){
+		while(x.length() != len){
+			x = x + filler;
+		}
+		return x;
+	}
+
+	public static String turnIntoLength(int x, char filler, int len){
+		if(x >= 0){
+			String toBeReturned = "" + x;
+			while(toBeReturned.length() != len){
+				toBeReturned = filler + toBeReturned;
+			}
+			return toBeReturned;
+		} else {
+			x = x * -1;
+			String toBeReturned = (turnIntoLength(x, filler, len - 1));
+			toBeReturned = "-" + toBeReturned;
+			return toBeReturned;
+		}
+	}
+
 	//Setters and getters
 
 	public int getNum() {
 		return num;
 	}
 
-
 	public void setNum(int num) {
 		this.num = num;
 	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public int getfSkillMin() {
 		return fSkillMin;
 	}
 
-
 	public void setfSkillMin(int fSkillMin) {
 		this.fSkillMin = fSkillMin;
 	}
-
 
 	public int getfSkillMax() {
 		return fSkillMax;
 	}
 
-
 	public void setfSkillMax(int fSkillMax) {
 		this.fSkillMax = fSkillMax;
 	}
-
 
 	public int getdSkillMin() {
 		return dSkillMin;
 	}
 
-
 	public void setdSkillMin(int dSkillMin) {
 		this.dSkillMin = dSkillMin;
 	}
-
 
 	public int getdSkillMax() {
 		return dSkillMax;
 	}
 
-
 	public void setdSkillMax(int dSkillMax) {
 		this.dSkillMax = dSkillMax;
 	}
-
 
 	public int getgSkillMin() {
 		return gSkillMin;
 	}
 
-
 	public void setgSkillMin(int gSkillMin) {
 		this.gSkillMin = gSkillMin;
 	}
 
-
 	public int getgSkillMax() {
 		return gSkillMax;
 	}
-
 
 	public void setgSkillMax(int gSkillMax) {
 		this.gSkillMax = gSkillMax;
@@ -218,11 +242,11 @@ public class Team {
 	}
 
 	//printTeam
-	public void printTeam() {
+	public void printRoster() {
 		System.out.println("Team Name: " + this.getName());
 		System.out.println("");
-		System.out.println("No" + "    " + "Name" + "    " +"Position" + "   "  + "Skill Level");
-		System.out.println("**" + "    " + "****" + "    " +"********" + "   "  + "***********");
+		System.out.println("No" + "    " + "Name" + "    " +"Position" + "    "  + "Skill Level");
+		System.out.println("**" + "    " + "****" + "    " +"********" + "    "  + "***********");
 		for(int i = 0; i < 13; i++) {
 			System.out.println(this.forward[i]);
 		}
@@ -234,5 +258,25 @@ public class Team {
 		}
 	}
 
+	public static void printAllStats(){
+		System.out.println("Team Name   " + "     " + "GP" + "    " + "W " + "    " + "L " + "    " + "OTL" + "    " + "Pts" + "    " + "GF" + "    " + "GA" + "    " + "Diff");
+		System.out.println("*********   " + "     " + "**" + "    " + "**" + "    " + "**" + "    " + "***" + "    " + "***" + "    " + "**" + "    " + "**" + "    " + "****");
+		for(int i = 0; i < teams.length; i++){
+			teams[i].printTeamStats();
+		}
+	}
+
+	public void printTeamStats(){
+		String name = turnIntoLength(this.name, ' ', 13);
+		String gp = turnIntoLength(this.played, '0', 2);
+		String w = turnIntoLength(this.wins, '0', 2);
+		String l = turnIntoLength(this.losses, '0', 2);
+		String otl = turnIntoLength(this.overtimeLoss, '0', 3);
+		String pts = turnIntoLength(this.points, '0', 3);
+		String gf = turnIntoLength(this.goalsFor, '0', 2);
+		String ga = turnIntoLength(this.goalsAgainst, '0', 2);
+		String diff = turnIntoLength((this.goalsFor - this.goalsAgainst), '0', 4);
+		System.out.println(name + "    " + gp + "    " + w + "    " + l + "    " + otl + "    " + pts + "    " + gf + "    " + ga + "    " + diff);
+	}
 
 }
