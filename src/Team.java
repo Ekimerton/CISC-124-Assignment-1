@@ -71,7 +71,7 @@ public class Team {
 	static Team tampa_bay = new Team(14, "Tampa Bay", 		6, 10, 6, 10, 7, 9);
 	static Team washington = new Team(15, "Washington", 	6, 10, 5, 8, 6, 8);
 
-	static Team[] teams = {leafs, boston, buffalo, carolina, columbus, detroit, florida, montreal, new_jersey, ny_islanders, ny_rangers, ottawa, philadelphia, pittsburgh, tampa_bay, washington};
+	static Team[] teams = {boston, buffalo, carolina, columbus, detroit, florida, montreal, new_jersey, ny_islanders, ny_rangers, ottawa, philadelphia, pittsburgh, tampa_bay, leafs, washington};
 
 //Constructor
 	public Team(int num, String name, int fSkillMin, int fSkillMax, int dSkillMin, int dSkillMax, int gSkillMin, int gSkillMax) {
@@ -241,9 +241,27 @@ public class Team {
 		return this.p;
 	}
 
-	//printTeam
+	//prints
+	public static void printFirstandLast(Team[] teamList){
+		int max = teamList[0].points;
+		Team maxT = teamList[0];
+		int min = teamList[0].points;
+		Team minT = teamList[0];
+		for(int i = 0; i < teamList.length; i++){
+			if(teamList[i].points > max){
+				max = teamList[i].points;
+				maxT = teamList[i];
+			}
+			if(teamList[i].points < min){
+				min = teamList[i].points;
+				minT = teamList[i];
+			}
+		}
+		System.out.println("First Team: " + maxT.name + "    " + "Points: " + maxT.points);
+		System.out.println("Last Team: " + minT.name + "    " + "Points: " + minT.points);
+	}
+
 	public void printRoster() {
-		System.out.println("Team Name: " + this.getName());
 		System.out.println("");
 		System.out.println("No" + "    " + "Name" + "    " +"Position" + "    "  + "Skill Level");
 		System.out.println("**" + "    " + "****" + "    " +"********" + "    "  + "***********");
