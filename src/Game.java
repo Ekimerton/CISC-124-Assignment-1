@@ -18,8 +18,8 @@ public class Game{
     this.team2 = team2;
     this.p1 = team1.getP();
     this.p2 = team2.getP();
-    this.g1 = team1.goalie[(int)(Math.random() * 4)].getSkill();
-    this.g2 = team2.goalie[(int)(Math.random() * 4)].getSkill();
+    this.g1 = team1.goalie[NHLSimulator.generator.nextInt(4)].getSkill();
+    this.g2 = team2.goalie[NHLSimulator.generator.nextInt(4)].getSkill();
     this.t1 = p1 + g1;
     this.t2 = p2 + g2;
   }
@@ -43,7 +43,7 @@ public class Game{
         team1.points = team1.points + 2;
         team2.points = team2.points + 1;
       } else {
-        int decide = (int)(Math.random() * 2);
+        int decide = NHLSimulator.generator.nextInt(2);
         if(decide == 0){ //Overtime tie then team2 wins
           score2++;
           team2.wins++;
@@ -92,7 +92,7 @@ public class Game{
   }
 
   public static int forwardsPlay(){
-    int rand = (int)(Math.random() * 3);
+    int rand = NHLSimulator.generator.nextInt(3);
     if(rand == 0){
       return 25;
     } else if (rand == 1){
@@ -105,7 +105,7 @@ public class Game{
   }
 
   public static int defendersPlay(){
-    int rand = (int)(Math.random() * 3);
+    int rand = NHLSimulator.generator.nextInt(3);
     if(rand == 0){
       return 40;
     } else if (rand == 1){
@@ -118,7 +118,7 @@ public class Game{
   }
 
   public static int goaliesPlay(){
-    int rand = (int)(Math.random() * 3);
+    int rand = NHLSimulator.generator.nextInt(3);
     if(rand == 0){
       return 60;
     } else if (rand == 1){
@@ -134,7 +134,7 @@ public class Game{
     int points = 0;
     int rand = 0;
     while(score >= 50){
-      rand = (int)(Math.random() * 3);
+      rand = NHLSimulator.generator.nextInt(3);
       if(rand == 0){
         points = points + 0;
       } else if (rand == 1){
@@ -146,7 +146,7 @@ public class Game{
 
     }
     if(score > 0){
-      rand = (int)(Math.random() * 2);
+      rand = NHLSimulator.generator.nextInt(2);
       if(rand == 0){
         points = points + 0;
       } else if (rand == 1){
@@ -158,7 +158,7 @@ public class Game{
 
   public int getOvertimeSkill(Team team){
     int totalSkill = 0;
-    totalSkill = totalSkill + team.goalie[(int)(Math.random() * 4)].getSkill();
+    totalSkill = totalSkill + team.goalie[NHLSimulator.generator.nextInt(4)].getSkill();
     int[] randomNumbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
     shuffleArray(randomNumbers);
     for(int i = 0; i < 3; i++){

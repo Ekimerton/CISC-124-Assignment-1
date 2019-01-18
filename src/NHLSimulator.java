@@ -8,6 +8,7 @@ import java.util.*; // Used for the scanner class
 
 public class NHLSimulator {
 static Scanner s = new Scanner(System.in);
+static Random generator = new Random(System.currentTimeMillis());
 
 	public static void main(String[] args) {
 		System.out.println("NHL Simulator(Version 0.1). Author: Ekim Karabey");
@@ -28,6 +29,7 @@ static Scanner s = new Scanner(System.in);
 				} else if (in == 2){
 					if(simulated){
 						String teamIn = s.nextLine();
+						System.out.print("Team Name: ");
 						teamIn = s.nextLine();
 						Team found = Team.findTeam(teamIn);
 						if(found != null){

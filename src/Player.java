@@ -9,7 +9,7 @@ public class Player {
 		this.pos = pos;
 		this.team = team;
 		skill = createSkill(this);
-		this.num = (int)(Math.random() * 99);
+		this.num = NHLSimulator.generator.nextInt(99);
 		this.id = pos + "" + num;
 
 	}
@@ -26,11 +26,11 @@ public class Player {
 		char pos = p.getPos();
 		Team team = p.getTeam();
 		if (pos == 'F') {
-			return team.getfSkillMin() + ((int) (Math.random() * (team.getfSkillMax() + 1 - team.getfSkillMin())));
+			return team.getfSkillMin() + (NHLSimulator.generator.nextInt(team.getfSkillMax() + 1 - team.getfSkillMin()));
 		} else if (pos == 'D'){
-			return team.getdSkillMin() + (int) (Math.random() * (team.getdSkillMax() + 1 - team.getdSkillMin()));
+			return team.getdSkillMin() + (NHLSimulator.generator.nextInt(team.getdSkillMax() + 1 - team.getdSkillMin()));
 		} else if (pos == 'G') {
-			return team.getgSkillMin() + (int) (Math.random() * (team.getgSkillMax() + 1 - team.getgSkillMin()));
+			return team.getgSkillMin() + (NHLSimulator.generator.nextInt(team.getgSkillMax() + 1 - team.getgSkillMin()));
 		} else {
 			return -1;
 		}
