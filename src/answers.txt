@@ -1,0 +1,7 @@
+1. Yes, the Toronto Maple Leafs were higher than 8th place, so they made the playoffs.
+
+2. Since the leafs got first place in my run, it is safe to say that the minimum skill rating is below the current
+skill rating. The problem with pinpointing a specific number is because of the amount of randomization that goes
+towards score. A team full of low skill players can beat a team full of higher skill players, since there are so
+many random factors. How well the team plays (eg. the +25, -25 for forwards... etc), how many goals they score per
+50 skill points, which players are chosen (goalies for regulation/ goalies and defenders for overtime).

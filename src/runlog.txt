@@ -1,0 +1,85 @@
+NHL Simulator(Version 0.1). Author: Ekim Karabey
+1 - Simulate NHL Season (Eastern Conference)
+2 - View Team Skill Level Profile
+3 - Display End of Regular Season Table
+Select Option [1, 2 or 3](9 to Quit):3
+
+Must run NHL Eastern Conference Simulation before accessing this option!
+
+NHL Simulator(Version 0.1). Author: Ekim Karabey
+1 - Simulate NHL Season (Eastern Conference)
+2 - View Team Skill Level Profile
+3 - Display End of Regular Season Table
+Select Option [1, 2 or 3](9 to Quit):1
+
+Total Games: 240
+First Team: Toronto    Points: 49
+Last Team: Ottawa    Points: 28
+
+NHL Simulator(Version 0.1). Author: Ekim Karabey
+1 - Simulate NHL Season (Eastern Conference)
+2 - View Team Skill Level Profile
+3 - Display End of Regular Season Table
+Select Option [1, 2 or 3](9 to Quit):2
+
+Team Name: Ottawa
+
+No    Name    Position    Skill Level
+**    ****    ********    ***********
+35    F35     forward        6
+74    F74     forward        5
+0     F0      forward        5
+34    F34     forward        4
+86    F86     forward        5
+49    F49     forward        4
+41    F41     forward        6
+72    F72     forward        5
+45    F45     forward        6
+77    F77     forward        5
+44    F44     forward        5
+77    F77     forward        6
+47    F47     forward        4
+87    D87     defense        5
+87    D87     defense        4
+22    D22     defense        4
+2     D2      defense        4
+49    D49     defense        4
+32    D32     defense        4
+11    D11     defense        5
+78    D78     defense        5
+76    G76     goalie         4
+35    G35     goalie         4
+73    G73     goalie         5
+56    G56     goalie         4
+
+NHL Simulator(Version 0.1). Author: Ekim Karabey
+1 - Simulate NHL Season (Eastern Conference)
+2 - View Team Skill Level Profile
+3 - Display End of Regular Season Table
+Select Option [1, 2 or 3](9 to Quit):3
+
+Team Name        GP    W     L     OTL    Pts    GF    GA    Diff
+*********        **    **    **    ***    ***    **    **    ****
+Boston           30    13    09    008    034    24    29    -005
+Buffalo          30    19    04    007    045    26    17    0009
+Carolina         30    15    08    007    037    22    23    -001
+Columbus         30    16    10    004    036    25    25    0000
+Detroit          30    12    07    011    035    17    25    -008
+Florida          30    15    06    009    039    18    22    -004
+Montreal         30    09    07    014    032    14    28    -014
+New Jersey       30    14    06    010    038    24    17    0007
+NY Islanders     30    17    08    005    039    30    21    0009
+NY Rangers       30    15    05    010    040    22    17    0005
+Ottawa           30    08    10    012    028    18    34    -016
+Philadelphia     30    09    03    018    036    18    30    -012
+Pittsburgh       30    13    12    005    031    27    29    -002
+Tampa Bay        30    23    06    001    047    33    14    0019
+Toronto          30    24    05    001    049    28    12    0016
+Washington       30    18    10    002    038    20    23    -003
+
+NHL Simulator(Version 0.1). Author: Ekim Karabey
+1 - Simulate NHL Season (Eastern Conference)
+2 - View Team Skill Level Profile
+3 - Display End of Regular Season Table
+Select Option [1, 2 or 3](9 to Quit):9
+

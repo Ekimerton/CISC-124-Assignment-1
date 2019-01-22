@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Name: Ekim Karabey
 NetId: 18ebk
@@ -6,6 +7,8 @@ Date: 19/01/2019
 */
 
 import java.util.Collections;
+=======
+>>>>>>> 62a150c3832e081723b647b07833f4fb346b369e
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
