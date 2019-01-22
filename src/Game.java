@@ -1,3 +1,10 @@
+/*
+Name: Ekim Karabey
+NetId: 18ebk
+Student Number: 20121769
+Date: 19/01/2019
+*/
+
 import java.util.Collections;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;

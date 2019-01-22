@@ -1,3 +1,10 @@
+/*
+Name: Ekim Karabey
+NetId: 18ebk
+Student Number: 20121769
+Date: 19/01/2019
+*/
+
 public class Team {
 
 	int num = -1;
@@ -11,7 +18,7 @@ public class Team {
 	Player[] forward = new Player[13];
 	Player[] defense = new Player[8];
 	Player[] goalie = new Player[4];
-	int p = 0; //P is the concept defined in the assignment, the sum of the skills of the offence and defense players. The assignment tells the programmer to calculate this at the beginning of every game, but since this stays constant, there is no point in calculating it more than once.
+	int p = 0; /* P is the concept defined in the assignment, the sum of the skills of the offence and defense players. The assignment tells the programmer to calculate this at the beginning of every game, but since this stays constant, there is no point in calculating it more than once. */
 
 	int played = 0;
 	int wins = 0;
