@@ -103,7 +103,6 @@ Each team has a determined skill range for each of the positions, so this method
 /*
 Pretty self explanitory, just prints the players various attributes, along with some fancy formatting.
 */
-
 	//toString
 	public String toString() {
 		String position = "";
