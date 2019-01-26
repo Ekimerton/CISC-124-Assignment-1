@@ -5,4 +5,6 @@
 Sum of Tampa Bay skills: forwards = 94, defenders = 58, goalies = 33, total = 185
 Sum of Toronto skills: forwards = 96, defenders = 50, goalies = 28, total = 174
 
-The forwards of the Leafs have an edge on Tampa Bay, but the defense would benefit from gaining 8 more skill overall, and goalies 5 more skill. 
+The forwards of the Leafs have an edge on Tampa Bay, but the defense would benefit from gaining 8 more skill overall, and goalies 5 more skill.
+
+PS: Interestingly enough, I ran the program again once more, and in the run right after Toronto was 1st place with Tampa Bay at 2nd, by a 1 point difference. Once again, there is too much randomness in the calculations give a solid number of skill points needed sternly. 
