@@ -18,7 +18,7 @@ public class Game{
   int g2 = 0;
   int t1 = 0;
   int t2 = 0;
-  
+
   //Constructor takes in two Team objects, and generates g1, g2, gets p1 and p2, uses those to generate t1 and t2.
   public Game(Team team1, Team team2){
     this.team1 = team1;
@@ -34,10 +34,10 @@ public class Game{
   /*
   First, the t values are changed according to a randomized performance of the forwards, defenders and goalies. Then, their scores
   (points but I didn't know hockey lol) are calculated according to the rules, using the simulateRegulation() method. Then, an if else
-  statement is entered to see if the game will go on to overtime, or if team1/team2 won. 
-  
+  statement is entered to see if the game will go on to overtime, or if team1/team2 won.
+
   If overtime is entered the getOvertimeSkill() method is run, to determine who scores the final goal. If both teams have equal overtime
-  skill, a hypothetical coin is flipped. 
+  skill, a hypothetical coin is flipped.
   */
   public void simulateGame(){
     t1 = + forwardsPlay() + defendersPlay() + goaliesPlay();
@@ -53,7 +53,7 @@ public class Game{
         team1.overtimeLoss++;
         team2.points = team2.points + 2;
         team1.points = team1.points + 1;
-      } else if (o1 > ot2){ //Overtime when team1 wins
+      } else if (ot1 > ot2){ //Overtime when team1 wins
         score1++;
         team1.wins++;
         team2.overtimeLoss++;
@@ -95,7 +95,7 @@ public class Game{
 
   /*
   This simulates the entire season, using nested for loops, similar to a selection sort. Since selection sort compares every number to
-  every other number exactly once, this method uses the same methodology, and simulates a game with every team pair twice. 
+  every other number exactly once, this method uses the same methodology, and simulates a game with every team pair twice.
   */
   public static void simulateSeason(){
     int count = 0;
@@ -110,7 +110,7 @@ public class Game{
       }
     }
   }
-  
+
   /*
   Just randomly returns -25, 0, 25.
   */
@@ -158,10 +158,10 @@ public class Game{
       return -10000;
     }
   }
-  
+
   /*
-  For every 50 point partition, either 0, 1, or 2 points are scored. This while loop runs until the score is less than 50, and then the 
-  rest of the score translates to either 0 or 1 point. 
+  For every 50 point partition, either 0, 1, or 2 points are scored. This while loop runs until the score is less than 50, and then the
+  rest of the score translates to either 0 or 1 point.
   */
   public static int simulateRegulation(int score){
     int points = 0;
@@ -191,8 +191,8 @@ public class Game{
 
   /*
   To get three random unique numbers I generate an array of numbers between 0-20 (13 forwards + 8 defence = 21 total player pool). Then,
-  the array is shuffled, and the first three numbers are picked. A single random integer is generated for the goalie. Then, the sum of 
-  the picked players' skills are added and returned as an int. 
+  the array is shuffled, and the first three numbers are picked. A single random integer is generated for the goalie. Then, the sum of
+  the picked players' skills are added and returned as an int.
   */
   public int getOvertimeSkill(Team team){
     int totalSkill = 0;
@@ -226,7 +226,7 @@ public class Game{
   }
 
   /*
-  Used for debugging, making sure the game generation isn't messed up. 
+  Used for debugging, making sure the game generation isn't messed up.
   */
   public void printGame(){
     System.out.println("Game between " + team1.getName() + " and "  + team2.getName());

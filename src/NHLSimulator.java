@@ -18,11 +18,9 @@ static Random generator = new Random(System.currentTimeMillis()); //Creating the
 		System.out.println("2 - View Team Skill Level Profile");
 		System.out.println("3 - Display End of Regular Season Table");
 		System.out.print("Select Option [1, 2 or 3](9 to Quit):");
-		try{
-			int in = s.nextInt();
-		} catch(Exception e){
-			int in = 0;
-		}
+
+		int in = 0;
+		in = s.nextInt();
 		System.out.println("");
 
 		boolean simulated = false; //This variable is used to check if the NHL season is simulated, for options 2 and 3.
@@ -37,11 +35,7 @@ static Random generator = new Random(System.currentTimeMillis()); //Creating the
 						String teamIn = s.nextLine();
 						System.out.print("Team Name: ");
 						teamIn = s.nextLine();
-						try{
-							Team found = Team.findTeam(teamIn);
-						} catch (Exception e){
-							System.out.println("Enter a string! >:(");
-						}
+						Team found = Team.findTeam(teamIn);
 						if(found != null){
 							found.printRoster();
 						}
@@ -63,11 +57,7 @@ static Random generator = new Random(System.currentTimeMillis()); //Creating the
 			System.out.println("2 - View Team Skill Level Profile");
 			System.out.println("3 - Display End of Regular Season Table");
 			System.out.print("Select Option [1, 2 or 3](9 to Quit):");
-			try{
-				in = s.nextInt();
-			} catch(Exception e){
-				in = 0;
-			}
+			in = s.nextInt();
 			System.out.println("");
 		}
 	}
