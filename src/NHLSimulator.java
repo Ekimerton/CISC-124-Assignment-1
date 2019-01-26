@@ -12,19 +12,16 @@ static Scanner s = new Scanner(System.in); //Creating the Scanner
 static Random generator = new Random(System.currentTimeMillis()); //Creating the Random generator that is seeded with the time that this
 //program is run on
 
-	/*
-	
-	*/
 	public static void main(String[] args) {
 		System.out.println("NHL Simulator(Version 0.1). Author: Ekim Karabey");
 		System.out.println("1 - Simulate NHL Season (Eastern Conference)");
 		System.out.println("2 - View Team Skill Level Profile");
 		System.out.println("3 - Display End of Regular Season Table");
 		System.out.print("Select Option [1, 2 or 3](9 to Quit):");
-		try(){
+		try{
 			int in = s.nextInt();
-		} except(Exception e){
-			System.out.println("Please input a number! >:(");
+		} catch(Exception e){
+			int in = 0;
 		}
 		System.out.println("");
 
@@ -40,9 +37,9 @@ static Random generator = new Random(System.currentTimeMillis()); //Creating the
 						String teamIn = s.nextLine();
 						System.out.print("Team Name: ");
 						teamIn = s.nextLine();
-						try(){
+						try{
 							Team found = Team.findTeam(teamIn);
-						} except (Exception e){
+						} catch (Exception e){
 							System.out.println("Enter a string! >:(");
 						}
 						if(found != null){
@@ -66,10 +63,10 @@ static Random generator = new Random(System.currentTimeMillis()); //Creating the
 			System.out.println("2 - View Team Skill Level Profile");
 			System.out.println("3 - Display End of Regular Season Table");
 			System.out.print("Select Option [1, 2 or 3](9 to Quit):");
-			try(){
-				int in = s.nextInt();
-			} except(Exception e){
-				System.out.println("Please input a number! >:(");
+			try{
+				in = s.nextInt();
+			} catch(Exception e){
+				in = 0;
 			}
 			System.out.println("");
 		}
