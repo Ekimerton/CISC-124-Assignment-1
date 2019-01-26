@@ -7,43 +7,40 @@ Date: 19/01/2019
 
 public class Player {
 
-/*
-A player object has a char position ('f' or 'd' or 'g'), an int skill (1-10), a jersey number, a name, which in this case is pos + number, and a Team object that it belongs to.
-*/
+	/*
+	A player object has a char position ('f' or 'd' or 'g'), an int skill (1-10), a jersey number, a name, which in this case is pos + number, and a Team object that it belongs to.
+	*/
 	char pos = 'X';
 	int skill = -1;
 	int num = -1;
 	String id = "";
 	Team team = null;
 
-/*
-This constuctor is used for generating new players, for teams that are not the leafs. Since a number and skill aren't known, they are randomly generated. Their number is a randomly generated int between 0 and 99. Their skill is generated based on their position and team, using the method createSkill().
-*/
+	/*
+	This constuctor is used for generating new players, for teams that are not the leafs. Since a number and skill aren't known, they are randomly generated. Their number is a randomly generated int between 0 and 99. Their skill is generated based on their position and team, using the method createSkill().
+	*/
 	public Player(char pos, Team team) {
 		this.pos = pos;
 		this.team = team;
 		skill = createSkill(this);
 		this.num = NHLSimulator.generator.nextInt(99);
-		this.id = pos + "" + num;
-
+		this.id = pos + "" + Team.turnIntoLength(num, '0', 2);
 	}
 
-/*
-This constuctor is used for "importing" leafs plays, whos skill ratings don't have to be generated, and their numbers are known. The team is always set to leafs, and their Id is set up as normal.
-*/
-
+	/*
+	This constuctor is used for "importing" leafs plays, whos skill ratings don't have to be generated, and their numbers are known. The team is always set to leafs, and their Id is set up as normal.
+	*/
 	public Player(char pos, int skill, int num) {
 		this.pos = pos;
 		this.skill = skill;
 		this.num = num;
-		this.id = pos + "" + num;
+		this.id = pos + "" + Team.turnIntoLength(num, '0', 2);
 		this.team = Team.leafs;
 	}
 
-/*
-Each team has a determined skill range for each of the positions, so this method first determines which position the player is. For example, if they are a forward, the 'F' if statement is entered, and a random number is generated, that is in range of the teams forward skill range. (Vice versa for all the other positions.)
-*/
-
+	/*
+	Each team has a determined skill range for each of the positions, so this method first determines which position the player is. For example, if they are a forward, the 'F' if statement is entered, and a random number is generated, that is in range of the teams forward skill range. (Vice versa for all the other positions.)
+	*/
 	public static int createSkill(Player p) {
 		char pos = p.getPos();
 		Team team = p.getTeam();
@@ -100,10 +97,9 @@ Each team has a determined skill range for each of the positions, so this method
 		this.team = team;
 	}
 
-/*
-Pretty self explanitory, just prints the players various attributes, along with some fancy formatting.
-*/
-	//toString
+	/*
+	Pretty self explanitory, just prints the players various attributes, along with some fancy formatting.
+	*/
 	public String toString() {
 		String position = "";
 		if(this.getPos() == 'F'){
@@ -113,12 +109,7 @@ Pretty self explanitory, just prints the players various attributes, along with 
 		} else if(this.getPos() == 'G'){
 			position = "goalie ";
 		}
-
-		if(this.getNum() < 10){
-			return this.getNum() + "     " + this.getId() + "      " + position + "        " + this.getSkill();
-		} else {
-			return this.getNum() + "    " + this.getId() + "     " + position + "        " + this.getSkill();
-		}
+		return Team.turnIntoLength(this.getNum(), '0', 2) + "     " + this.getId() + "      " + position + "          " + Team.turnIntoLength(this.getSkill(), '0', 2);
 	}
 
 }

@@ -60,8 +60,10 @@ public class Team {
 	static Player sparks = new Player('G', 6, 40);
 	static Player[] leafsG = {andersen, hutchinson, kaskisuo, sparks};
 
+	//Creating the leafs team using the special Constructor
 	static Team leafs = new Team(16, "Toronto", leafsF, leafsD, leafsG);
 
+	//Creating all the other teams, using their skill parameters
 	static Team boston = new Team(1, "Boston", 				5, 9, 4, 9, 5, 7);
 	static Team buffalo = new Team(2, "Buffalo", 			6, 9, 4, 7, 4, 7);
 	static Team carolina = new Team(3, "Carolina", 			4, 8, 5, 7, 4, 9);
@@ -78,9 +80,12 @@ public class Team {
 	static Team tampa_bay = new Team(14, "Tampa Bay", 		6, 10, 6, 10, 7, 9);
 	static Team washington = new Team(15, "Washington", 	6, 10, 5, 8, 6, 8);
 
+	//Array of teams
 	static Team[] teams = {boston, buffalo, carolina, columbus, detroit, florida, montreal, new_jersey, ny_islanders, ny_rangers, ottawa, philadelphia, pittsburgh, tampa_bay, leafs, washington};
 
-//Constructor
+	/*
+	Constructor for a team where the players are unknown, but the skill ranges are known, so the players are created randomly accordingly.
+	*/
 	public Team(int num, String name, int fSkillMin, int fSkillMax, int dSkillMin, int dSkillMax, int gSkillMin, int gSkillMax) {
 		this.num = num;
 		this.name = name;
@@ -99,6 +104,9 @@ public class Team {
 		this.p = this.calculateP();
 	}
 
+	/*
+	Overloaded Constructor that, in this case, is used for the Toronto Maple Leafs. Instead of taking in skill ranges and generating players, this Constructor takes in the players.
+	*/
 	public Team(int num, String name, Player[] forward, Player[] defense, Player[] goalie) {
 		this.num = num;
 		this.name = name;
@@ -111,6 +119,9 @@ public class Team {
 		this.p = this.calculateP();
 	}
 
+	/*
+	Goes through the array of teams, and returns the team with the name that is matching the parameter String.
+	*/
 	public static Team findTeam(String name){
 		for(int i = 0; i < teams.length; i++){
 			if(name.equals(teams[i].getName())){
@@ -120,7 +131,10 @@ public class Team {
 		System.out.println("Team name not found!");
 		return null;
 	}
-	//Methods
+
+	/*
+	Creates an array of Player objects, who are forwards, and have skill ratings that are within their Team's range.
+	*/
 	public Player[] initializeForwards() {
 		Player[] forwards = new Player[13];
 		for(int i = 0; i < 13; i++) {
@@ -129,6 +143,9 @@ public class Team {
 		return forwards;
 	}
 
+	/*
+	Creates an array of Player objects, who are defenders, and have skill ratings that are within their Team's range.
+	*/
 	public Player[] initializeDefenders() {
 		Player[] defenders = new Player[8];
 		for(int i = 0; i < 8; i++) {
@@ -137,6 +154,9 @@ public class Team {
 		return defenders;
 	}
 
+	/*
+	Creates an array of Player objects, who are goalies, and have skill ratings that are within their Team's range.
+	*/
 	public Player[] initializeGoalies() {
 		Player[] goalies = new Player[4];
 		for(int i = 0; i < 4; i++) {
@@ -145,6 +165,9 @@ public class Team {
 		return goalies;
 	}
 
+	/*
+	P is the sum of the skill ratings of the forwards and the defenders, which is constant one all the players are generated. This method is used in the Game class.
+	*/
 	public int calculateP(){
 		int p = 0;
 		for(int i = 0; i < 13; i++){
@@ -156,6 +179,10 @@ public class Team {
 		return p;
 	}
 
+	/*
+	Used for padding strings to the same length, so that the UI looks slick and aligned. Adds " " at the end until the
+	desired length is met.
+	*/
 	public static String turnIntoLength(String x, char filler, int len){
 		while(x.length() != len){
 			x = x + filler;
@@ -163,6 +190,9 @@ public class Team {
 		return x;
 	}
 
+	/*
+	Overloaded version of the previous method, used for ints. Instead of adding " " to the end, adds "0" to the beginning.
+	*/
 	public static String turnIntoLength(int x, char filler, int len){
 		if(x >= 0){
 			String toBeReturned = "" + x;
@@ -248,7 +278,9 @@ public class Team {
 		return this.p;
 	}
 
-	//prints
+	/*
+	Goes through an array that contains Teams, and prints the lowests and highest point teams.
+	*/
 	public static void printFirstandLast(Team[] teamList){
 		int max = teamList[0].points;
 		Team maxT = teamList[0];
@@ -268,10 +300,13 @@ public class Team {
 		System.out.println("Last Team: " + minT.name + "    " + "Points: " + minT.points);
 	}
 
+	/*
+	Prints all the players of a team class, along with some fancu additions for formatting.
+	*/
 	public void printRoster() {
 		System.out.println("");
-		System.out.println("No" + "    " + "Name" + "    " +"Position" + "    "  + "Skill Level");
-		System.out.println("**" + "    " + "****" + "    " +"********" + "    "  + "***********");
+		System.out.println("No" + "     " + "Name" + "     " +"Position" + "     "  + "Skill Level");
+		System.out.println("**" + "     " + "****" + "     " +"********" + "     "  + "***********");
 		for(int i = 0; i < 13; i++) {
 			System.out.println(this.forward[i]);
 		}
@@ -283,6 +318,9 @@ public class Team {
 		}
 	}
 
+	/*
+	Prints all the teams' stats, going through the team array, and calling the printTeamStats method on each team.
+	*/
 	public static void printAllStats(){
 		System.out.println("Team Name   " + "     " + "GP" + "    " + "W " + "    " + "L " + "    " + "OTL" + "    " + "Pts" + "    " + "GF" + "    " + "GA" + "    " + "Diff");
 		System.out.println("*********   " + "     " + "**" + "    " + "**" + "    " + "**" + "    " + "***" + "    " + "***" + "    " + "**" + "    " + "**" + "    " + "****");
@@ -291,6 +329,9 @@ public class Team {
 		}
 	}
 
+	/*
+	This could have been fine without having a method all to itself, but for the sake of readability, I decided to make the formatting into a seperate method instead of makign the printAllStats method look like spaghetti code.
+	*/
 	public void printTeamStats(){
 		String name = turnIntoLength(this.name, ' ', 13);
 		String gp = turnIntoLength(this.played, '0', 2);
