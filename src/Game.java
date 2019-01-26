@@ -94,8 +94,7 @@ public class Game{
   }
 
   /*
-  This simulates the entire season, using nested for loops, similar to a selection sort. Since selection sort compares every number to
-  every other number exactly once, this method uses the same methodology, and simulates a game with every team pair twice. 
+  This simulates the entire season, using nested for loops, similar to a selection sort. Since selection sort compares every number to     every other number exactly once, this method uses the same methodology 
   */
   public static void simulateSeason(){
     int count = 0;
@@ -109,11 +108,9 @@ public class Game{
         count = count + 2;
       }
     }
+    System.out.println("Total Games: " + count);
   }
-  
-  /*
-  Just randomly returns -25, 0, 25.
-  */
+
   public static int forwardsPlay(){
     int rand = NHLSimulator.generator.nextInt(3);
     if(rand == 0){
@@ -127,9 +124,6 @@ public class Game{
     }
   }
 
-  /*
-  Just randomly returns 40, 0, -40.
-  */
   public static int defendersPlay(){
     int rand = NHLSimulator.generator.nextInt(3);
     if(rand == 0){
@@ -143,9 +137,6 @@ public class Game{
     }
   }
 
-  /*
-  Just randomly returns 60, 0, -60.
-  */
   public static int goaliesPlay(){
     int rand = NHLSimulator.generator.nextInt(3);
     if(rand == 0){
@@ -158,11 +149,7 @@ public class Game{
       return -10000;
     }
   }
-  
-  /*
-  For every 50 point partition, either 0, 1, or 2 points are scored. This while loop runs until the score is less than 50, and then the 
-  rest of the score translates to either 0 or 1 point. 
-  */
+
   public static int simulateRegulation(int score){
     int points = 0;
     int rand = 0;
@@ -189,11 +176,6 @@ public class Game{
     return points;
   }
 
-  /*
-  To get three random unique numbers I generate an array of numbers between 0-20 (13 forwards + 8 defence = 21 total player pool). Then,
-  the array is shuffled, and the first three numbers are picked. A single random integer is generated for the goalie. Then, the sum of 
-  the picked players' skills are added and returned as an int. 
-  */
   public int getOvertimeSkill(Team team){
     int totalSkill = 0;
     totalSkill = totalSkill + team.goalie[NHLSimulator.generator.nextInt(4)].getSkill();
@@ -210,9 +192,7 @@ public class Game{
     return totalSkill;
   }
 
-  /*
-  Implementing Fisher–Yates shuffle from https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
-  */
+  // Implementing Fisher–Yates shuffle from https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
   static void shuffleArray(int[] ar)
   {
     Random rnd = ThreadLocalRandom.current();
@@ -225,9 +205,6 @@ public class Game{
     }
   }
 
-  /*
-  Used for debugging, making sure the game generation isn't messed up. 
-  */
   public void printGame(){
     System.out.println("Game between " + team1.getName() + " and "  + team2.getName());
     System.out.println(this.p1 + this.g1);
