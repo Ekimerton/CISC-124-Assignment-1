@@ -1,8 +1,8 @@
-1. Yes, the Toronto Maple Leafs were higher than 8th place, so they made the playoffs.
+1. Yes, the Toronto Maple Leafs were higher than 8th place (2nd place), so they made the playoffs.
 
-2. Since the leafs got first place in my run, it is safe to say that the minimum skill rating is below the current
-skill rating. The problem with pinpointing a specific number is because of the amount of randomization that goes
-towards score. A team full of low skill players can beat a team full of higher skill players, since there are so
-many random factors. How well the team plays (eg. the +25, -25 for forwards... etc), how many goals they score per
-50 skill points, which players are chosen (goalies for regulation/ goalies and defenders for overtime). Overall, some
-victories can be attributed to luck, but irregardless I would say the leafs end up getting top 3 consistently. 
+2. The leafs got second place in my run, behind Tampa Bay. Though the random additions of points can change 1st place on a case by case basis, Tampa Bay consistenly seems to win the most. Since the random parts can't be affected, we'll compare the skills, and see if Toronto needs an edge.
+
+Sum of Tampa Bay skills: forwards = 94, defenders = 58, goalies = 33, total = 185
+Sum of Toronto skills: forwards = 96, defenders = 50, goalies = 28, total = 174
+
+The forwards of the Leafs have an edge on Tampa Bay, but the defense would benefit from gaining 8 more skill overall, and goalies 5 more skill. 
