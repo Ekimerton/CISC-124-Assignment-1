@@ -8,19 +8,27 @@ Date: 19/01/2019
 import java.util.*; // Used for the scanner class
 
 public class NHLSimulator {
-static Scanner s = new Scanner(System.in);
-static Random generator = new Random(System.currentTimeMillis());
+static Scanner s = new Scanner(System.in); //Creating the Scanner
+static Random generator = new Random(System.currentTimeMillis()); //Creating the Random generator that is seeded with the time that this
+//program is run on
 
+	/*
+	
+	*/
 	public static void main(String[] args) {
 		System.out.println("NHL Simulator(Version 0.1). Author: Ekim Karabey");
 		System.out.println("1 - Simulate NHL Season (Eastern Conference)");
 		System.out.println("2 - View Team Skill Level Profile");
 		System.out.println("3 - Display End of Regular Season Table");
 		System.out.print("Select Option [1, 2 or 3](9 to Quit):");
-		int in = s.nextInt();
+		try(){
+			int in = s.nextInt();
+		} except(Exception e){
+			System.out.println("Please input a number! >:(");
+		}
 		System.out.println("");
 
-		boolean simulated = false;
+		boolean simulated = false; //This variable is used to check if the NHL season is simulated, for options 2 and 3.
 
 		while(in != 9){
 				if(in == 1){
@@ -32,7 +40,11 @@ static Random generator = new Random(System.currentTimeMillis());
 						String teamIn = s.nextLine();
 						System.out.print("Team Name: ");
 						teamIn = s.nextLine();
-						Team found = Team.findTeam(teamIn);
+						try(){
+							Team found = Team.findTeam(teamIn);
+						} except (Exception e){
+							System.out.println("Enter a string! >:(");
+						}
 						if(found != null){
 							found.printRoster();
 						}
@@ -54,7 +66,11 @@ static Random generator = new Random(System.currentTimeMillis());
 			System.out.println("2 - View Team Skill Level Profile");
 			System.out.println("3 - Display End of Regular Season Table");
 			System.out.print("Select Option [1, 2 or 3](9 to Quit):");
-			in = s.nextInt();
+			try(){
+				int in = s.nextInt();
+			} except(Exception e){
+				System.out.println("Please input a number! >:(");
+			}
 			System.out.println("");
 		}
 	}
