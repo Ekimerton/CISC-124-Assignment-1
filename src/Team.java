@@ -313,7 +313,7 @@ public class Team {
 		for(int i = 0; i < 8; i++) {
 			System.out.println(this.defense[i]);
 		}
-		for(int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++) {
 			System.out.println(this.goalie[i]);
 		}
 	}
